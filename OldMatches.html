@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+<script src= "https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js">
+</script>
+<script src=
+"https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js">
+</script>
+      <link rel="stylesheet" href="OldMatches.css">
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+    <nav class="navbar navbar-inverse navbar-fixed-top">
+  <div role="navigation">
+    <div class="container">
+      <div class="navbar-header">
+        <button class="navbar-toggle" type="button" data-toggle="collapse" data-target=".navbar-collapse">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a href="index.html" class="navbar-brand" style="color:orange;font-size:30px;">Khelo India</a>
+      </div>
+      <div class="navbar-collapse collapse">
+        <ul class="nav navbar-nav navbar-right">
+            <li><a href="index.html">Home</a></li>
+            <li> <a href="MatchCalendar.html">Calendar</a> </li>
+            <li> <a href="OldMatches.html">Old Matches</a></li>
+            <li><a href="contact.html">Contact</a> </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  </nav>
+
+  <center><h1><u>Match List</u></h1></center>
+
+
+  <center><button id="btn">
+      <p id="d05" style=""></p>
+      <p id="winner"><b>WINNER : </b>Melbourne Renegades</p>
+      <p id="d06" style=""></p>
+      <p id="winner"><b>WINNER : </b>Sydney Thunder Women</p>
+      <p id="d08" style=""></p>
+      <p id="winner"><b>WINNER : </b>Tamil Nadu</p>
+    </button></center>
+<br>
+<br>
+<br>
+<br>
+
+
+    <script type="text/javascript">
+      var url= 'http://cricapi.com/api/cricket?apikey=llumDIVJOlYOTlv2oJ1dnuTPITx2'
+
+      var xhr=new XMLHttpRequest
+
+      xhr.open('GET',url)
+
+      xhr.onreadystatechange=test
+
+      function test(){
+        if(this.status==200 && this.readyState==4){
+        var res_data=JSON.parse(this.responseText)
+        console.log(res_data)
+
+          var title=res_data.data[0].title
+          var title1=res_data.data[1].title
+
+          var title3=res_data.data[3].title
+
+
+          document.getElementById('d05').innerHTML=title
+          document.getElementById('d06').innerHTML=title1
+
+          document.getElementById('d08').innerHTML=title3
+
+      }
+}
+      xhr.send()
+
+
+    </script>
+    <br><br><br><br><br>
+    <footer class="site-footer">
+     <div class="container">
+       <div class="row">
+         <div class="col-sm-12 col-md-6">
+           <h6>Hire Us</h6>
+           <p class="text-justify">Resume Link of our TEAM :</p>
+           <p>Moksh : <a href="https://moksh1999.github.io/resume/">Resume</a>
+           <br>
+           Akshita : <a href="https://akshita12248.github.io/resume/">Resume</a>
+           <br>
+           Sakin : <a href="https://sakin221.github.io/resume/">Resume</a></p>
+         </div>
+
+
+       </div>
+       <hr>
+     </div>
+     <div class="container">
+       <div class="row">
+         <div class="col-md-8 col-sm-6 col-xs-12">
+           <p class="copyright-text">Copyright &copy; 2017 All Rights Reserved by
+        <a href="index.html">Khelo India</a>.
+           </p>
+         </div>
+
+
+       </div>
+     </div>
+    </footer>
+
+  </body>
+</html>
