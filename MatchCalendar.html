@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+  <link rel="stylesheet"
+href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+<script src= "https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js">
+</script>
+<script src=
+"https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js">
+</script>
+  <link rel="stylesheet" href="Calendar.css">
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+
+    <nav class="navbar navbar-inverse navbar-fixed-top">
+  <div role="navigation">
+    <div class="container">
+      <div class="navbar-header">
+        <a href="index.html" class="navbar-brand" style="color:orange;font-size:30px;">Khelo India</a>
+      </div>
+      <div class="navbar-collapse collapse">
+        <ul class="nav navbar-nav navbar-right">
+            <li><a href="index.html">Home</a></li>
+            <li> <a href="MatchCalendar.html">Calendar</a> </li>
+            <li> <a href="OldMatches.html">Old Matches</a></li>
+            <li><a href="contact.html">Contact</a> </li>
+        </ul>
+      </div>
+    </div>
+
+  </div>
+  </nav>
+
+
+  <div class="container">
+    <br>
+    <br>
+    <h1><center>Upcoming Matches...</center></h1>
+<div class="cards">
+
+
+<div class="card">
+  <span class="card-header">
+    <span class="card-title">
+    <h3 id="check1" style="align-self:center"></h3>
+    </span>
+  </span>
+  <span class="card-summary" id="desc1">
+    A summary will also be present. Usually two to three brief sentences about the content on the detail page.
+  </span>
+
+</div>
+
+<div class="card">
+  <span class="card-header2">
+    <span class="card-title">
+      <h3  id="check2"></h3>
+    </span>
+  </span>
+  <span class="card-summary" id="desc2">
+    A summary will also be present. Usually two to three brief sentences about the content on the detail page.
+  </span>
+
+</div>
+
+<div class="card">
+  <span class="card-header3">
+    <span class="card-title">
+      <h3 id="check3"></h3>
+    </span>
+  </span>
+  <span class="card-summary" id="desc3">
+    A summary will also be present. Usually two to three brief sentences about the content on the detail page.
+  </span>
+
+</div>
+</div>
+</div>
+        <script type="text/javascript">
+              var url='http://cricapi.com/api/matchCalendar?apikey=llumDIVJOlYOTlv2oJ1dnuTPITx2'
+
+              var xhr=new XMLHttpRequest
+
+              xhr.open('GET',url)
+
+              xhr.onreadystatechange=test
+
+              function test(){
+                if(this.status==200 && this.readyState==4){
+                var res_data=JSON.parse(this.responseText)
+                console.log(res_data)
+
+                var content=res_data.data[0]
+                var id=content.date
+                var name=content.name
+                document.getElementById('check1').innerHTML=id
+                document.getElementById('desc1').innerHTML=name
+
+                var content1=res_data.data[88]
+                var id1=content1.date
+                var name1=content1.name
+                document.getElementById('check2').innerHTML=id1
+                document.getElementById('desc2').innerHTML=name1
+
+                var content2=res_data.data[100]
+                var id2=content2.date
+                var name2=content2.name
+                document.getElementById('check3').innerHTML=id2
+                document.getElementById('desc3').innerHTML=name2
+              }
+            }
+
+              xhr.send()
+
+        </script>
+<br>
+<br>
+<br>
+<br>
+<br>
+<h1 id="weather"><center>Weather Report</center></h1>
+<br>
+<br>
+
+<br>
+        <div>
+          <center>
+          <table id="weatherreport">
+              <tr id="table1">
+                <th>City</th>
+                <th>Humidity</th>
+                <th>Max Temperature</th>
+                <th>Min Temperature</th>
+                <th>Weather forecast</th>
+              </tr>
+              <tr>
+                <th id="city"></th>
+                <th id="hum"></th>
+                <th id="maxtemp"></th>
+                <th id="mintemp"></th>
+                <th id="forecast"></th>
+              </tr>
+          </table>
+          <br>
+          <br>
+        </center>
+          </div>
+        <script type="text/javascript">
+              var url='http://api.openweathermap.org/data/2.5/weather?q=london,unitedkingdom&appid=11feda412dcc68ee43865e80ef269d92'
+
+              var xhr=new XMLHttpRequest
+
+              xhr.open('GET',url)
+
+              xhr.onreadystatechange=test
+
+              function test(){
+                if(this.status==200 && this.readyState==4){
+                var res_data=JSON.parse(this.responseText)
+                console.log(res_data)
+
+                var city=res_data.name
+                var hum=res_data.main.humidity
+                var maxtem=res_data.main.temp_max
+                var mintem=res_data.main.temp_min
+                var forecast=res_data.weather[0].description
+
+
+                document.getElementById('city').innerHTML=city
+                document.getElementById('hum').innerHTML=hum
+                document.getElementById('maxtemp').innerHTML=maxtem
+                document.getElementById('mintemp').innerHTML=mintem
+                document.getElementById('forecast').innerHTML=forecast
+              }
+            }
+
+              xhr.send()
+
+        </script>
+        <br><br><br><br><br>
+        <footer class="site-footer">
+         <div class="container">
+           <div class="row">
+             <div class="col-sm-12 col-md-6">
+               <h6>Hire Us</h6>
+               <p class="text-justify">Resume Link of our TEAM :</p>
+               <p>Moksh : <a href="https://moksh1999.github.io/resume/">Resume</a>
+               <br>
+               Akshita : <a href="https://akshita12248.github.io/resume/">Resume</a>
+               <br>
+               Sakin : <a href="https://sakin221.github.io/resume/">Resume</a></p>
+             </div>
+
+
+           </div>
+           <hr>
+         </div>
+         <div class="container">
+           <div class="row">
+             <div class="col-md-8 col-sm-6 col-xs-12">
+               <p class="copyright-text">Copyright &copy; 2017 All Rights Reserved by
+            <a href="index.html">Khelo India</a>.
+               </p>
+             </div>
+
+
+           </div>
+         </div>
+        </footer>
+
+
+  </body>
+</html>
